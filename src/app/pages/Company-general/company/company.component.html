@@ -1,0 +1,127 @@
+<app-dashboard></app-dashboard> 
+  <div class="top_box">
+    <div class="top">
+      <p class="top_p">Carles Cornadó</p>
+    </div>
+  </div>
+  
+  <div class="customer">
+    <div class="customer_card">
+      <div class="decoration">
+        <p class="decoration_p">Empresa</p>
+      </div>
+  
+      <form class="form" [formGroup]="companyForm" >
+        <div class="card_company">
+          <p class="company_p">Nombre</p>
+          <input
+            class="company_input"
+            type="text"
+            formControlName="name"
+          />
+          <div
+          >
+            <p class="required">*Requerido</p>
+          </div>
+  
+          <p class="company_p">CIF</p>
+          <input
+            class="company_input"
+            type="text"
+            formControlName="taxIdentificationNumber"
+          />
+          <div
+          >
+            <p class="required">*Requerido</p>
+          </div>
+  
+          <p class="company_p">País</p>
+          <input
+            class="company_input"
+            type="text"
+            formControlName="country"
+          />
+          <div
+          >
+            <p class="required">*Requerido</p>
+          </div>
+          
+          <p class="company_p">Ciudad</p>
+          <input
+            class="company_input"
+            type="text"
+            formControlName="city"
+          />
+          <div
+            *ngIf="
+              !companyForm.get('city')?.valid &&
+              (companyForm.get('city')?.dirty || submitted) &&
+              companyForm.get('city')?.hasError('required')
+            "
+          >
+            <p class="required">*Requerido</p>
+          </div>
+
+          <p class="company_p">Código postal</p>
+          <input
+            class="company_input"
+            type="text"
+            formControlName="cityCode"
+          />
+          <div
+          >
+            <p class="required">*Requerido</p>
+          </div>
+
+          <p class="company_p">Dirección</p>
+          <input
+            class="company_input"
+            type="text"
+            formControlName="address"
+          />
+          <div
+          >
+            <p class="required">*Requerido</p>
+          </div>
+          
+          <p class="company_p">Contacto</p>
+          <div>
+            <input type="text" placeholder="name" #name />
+            <input type="text" placeholder="phone" #phone />
+            <input type="text" placeholder="mail" #mail />
+            <button type="button" (click)="addContact(name.value, phone.value, mail.value)">Guardar</button>
+          </div>
+          <div *ngFor="let contact of arrContacts">
+            <p>{{contact.name}}</p>
+            <p>{{contact.phone}}</p>
+            <p>{{contact.mail}}</p>
+          </div>
+
+          <p class="company_p">Logo</p>
+          <input
+            class="company_input"
+            type="text"
+            formControlName="logo"
+          />
+
+          <p class="company_p">Marca Registrada</p>
+          <div>
+            <input type="text" placeholder="name" #name />
+            <input type="text" placeholder="logo" #logo />
+            <button type="button" (click)="addTradeMark(name.value, logo.value)">Guardar</button>
+          </div>
+          <div *ngFor="let tradeMark of arrTradeMarks">
+            <p>{{tradeMark.name}}</p>
+            <img src="{{tradeMark.logo}}" />
+          </div>
+          
+          <button type="button" (click)="onSubmit()">submit</button>
+          <div class="bottom_box">
+            <div class="bottom">
+              <p></p>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>

@@ -1,0 +1,44 @@
+<app-dashboard></app-dashboard> 
+<div class="top_box">
+  <div class="top">
+    <p class="top_p">Detalles de producto</p>
+  </div>
+</div>
+<app-loading-component *ngIf="!product"></app-loading-component>
+<div class="orders" *ngIf="product">
+  <div class="orders__container">
+    <div class="orders_information">
+    <div class="products_p">
+<p>{{product.productReference}}</p>
+<p>{{product.sanitaryProductReference}}</p>
+<p>{{product.description}}</p>
+</div>
+<!-- <div *ngFor="let image of product.images">
+  <img src="{{ image }}" alt="" />
+
+</div> -->
+<div class="components_p">
+<div *ngFor= "let component of product.components">
+  <p>Referencia del componente: {{ component.componentReference}}</p>
+</div>
+<div *ngFor= "let process of product.processes">
+  <p>Proceso: {{ process.name  }}</p>
+</div>
+<p> Precio:{{product.price}}</p>
+</div>
+</div>
+
+<div class="buttons">
+<button class="buttons__boton" (click)="deleteProduct(product._id)">Borrar producto</button>
+</div>
+
+<div class="buttons">
+  <button class="buttons__boton" type="button" (click) = editProduct() >editar</button>
+  </div>
+
+</div>
+</div>
+
+
+<app-footer></app-footer>
+

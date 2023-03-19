@@ -1,0 +1,104 @@
+<app-dashboard></app-dashboard> 
+<div class="top_box">
+  <div class="top">
+    <p class="top_p">Carles Cornadó</p>
+  </div>
+</div>
+<app-loading-component *ngIf="!products"></app-loading-component>
+<div class="production-order" *ngIf="products">
+  <div class="production-order_card">
+    <div class="decoration">
+      <p class="decoration_p">Production Orders</p>
+    </div>
+    <app-loading-component *ngIf="!products"></app-loading-component>
+    <form class="form" [formGroup]="productionOrderForm" (ngSubmit)="onSubmit()" *ngIf="products">
+      <div class="card_orderNumber">
+        <p class="orderNumber_p">Order Number</p>
+        <input
+          class="orderNumber_input"
+          type="text"
+          formControlName="orderNumber"
+        />
+        <!-- <p class="required">*Requerido</p> -->
+      </div>
+
+      <div class="card_product">
+        <label class="products">Seleciona un producto:</label>
+        <select name="products" id="#product" #product >
+          <option 
+          *ngFor="let product of products" 
+          value="{{ product._id }}">
+            {{ product.productReference }}
+          </option>
+        </select>
+        <button type="button" (click)="productsAdd(product.value)">
+          Add Product
+        </button>
+        <div *ngFor="let item of productsFiltered">
+          <p>{{ item.productReference }}</p>
+        </div>
+      </div>
+
+      <div class="card_component">
+        <label class="components">Seleciona un componente:</label>
+        <select name="components" id="component" #component>
+          <option
+            *ngFor="let component of components"
+            value="{{ component._id }}">
+            {{ component.componentReference }}
+          </option>
+        </select>
+        <button type="button" (click)="componentsAdd(component.value)">
+          Add Component
+        </button>
+        <div *ngFor="let item of componentsFiltered">
+          <p>{{ item.componentReference }}</p>
+        </div>
+      </div>
+
+      
+      <div class="card_process">
+        <label class="processes">Seleciona un processo:</label>
+        <select name="processes" id="#process" #process>
+          <option
+            *ngFor="let process of processes"
+            value="{{ process._id }}">
+            {{ process.name }}
+          </option>
+        </select>
+        <button type="button" (click)="processesAdd(process.value)">
+          Add Process
+        </button>
+        <div *ngFor="let item of processesFiltered">
+          <p>{{ item.name }}</p>
+        </div>
+      </div>
+
+
+    
+
+      <div class="card_quantity">
+        <p class="quantity_p">Quantity</p>
+        <input class="company_input" type="text" formControlName="quantity" />
+        <!-- <p class="required">*Requerido</p> -->
+      </div>
+
+      <div class="card_date">
+        <p class="direction_p">Date</p>
+        <input class="direction_input" type="text" formControlName="date" />
+        <!-- <p class="required">*Requerido</p> -->
+      </div>
+
+      <div class="card_expectedEnd">
+        <p class="expectedEnd_p">Expected End Date:</p>
+        <input
+          class="expectedEnd_input"
+          type="text"
+          formControlName="expectedEnd"
+        />
+      </div>
+      
+        <button type="button" class="form_button" (click)="onSubmit()">Crear</button>
+    </form>
+  </div>
+</div>

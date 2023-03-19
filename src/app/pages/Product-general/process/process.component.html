@@ -1,0 +1,53 @@
+<app-dashboard></app-dashboard> 
+<div class="top_box">
+    <div class="top">
+      <p class="top_p">Carles Cornadó</p>
+    </div>
+  </div>
+
+<div class="process">
+    <div class="process__card">
+      <h2 class="card__h2">
+       Gestión de proceso:
+      </h2>
+      
+    </div>
+</div>
+  
+<div *ngIf="!id" class="container">
+    <div class="container__studio">
+        <div class="studio__crud">
+            <form class="crud__form" [formGroup]="processForm" (ngSubmit)="addProcess()">
+                <p class="addProcess_p">Crea un nuevo proceso</p>
+                <input class="form__input" type="text" placeholder="Add Name" formControlName="name" />
+                <button class="form__button">Crear</button>
+            </form>
+        </div>  
+  
+        <div class="studio__view">
+            <div class="view__card">
+                <div *ngIf="process" class="card__info">
+                    <h3 class="info__h3">{{ process.name }}</h3>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="id" class="container">
+    <div class="container__studio">
+        <div class="studio__crud">
+            <form class="crud__form" [formGroup]="processForm" (ngSubmit)="editProcess()">
+                <p class="editProcess_p">Edita el proceso</p>
+                <input class="form__input" type="text" placeholder="Add Name" formControlName="name" />
+                <button class="form__button">Editar</button>
+            </form>
+        </div>  
+  
+        
+    </div>
+</div>
+
+<app-footer></app-footer>
+
+

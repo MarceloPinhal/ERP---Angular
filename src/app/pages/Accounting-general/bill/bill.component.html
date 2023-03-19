@@ -1,0 +1,126 @@
+<app-dashboard></app-dashboard> 
+
+<div class="top_box">
+  <div class="top">
+    <p class="top_p">Carles Cornadó</p>
+  </div>
+</div>
+
+<div class="bills">
+  <div class="bills_card">
+    <div class="decoration">
+      <p class="decoration_p">Facturas</p>
+    </div>
+    <form class="form" [formGroup]="billForm" (ngSubmit)="onSubmit()">
+      <div class="bills_company">
+        <p class="bills_p">Nº de factura</p>
+        <input class="bills_input" type="text" formControlName="billNumber" />
+        
+
+        <p class="bills_p">Nº de orden</p>
+        <input class="bills_input" type="text" formControlName="orderNumber" />
+        
+        <p class="bills_p">Fecha</p>
+        <input class="bills_input" type="text" formControlName="date" />
+        
+      </div>
+
+      <div class="bills_direction">
+        <p class="bills_p">Fecha de pago</p>
+        <input class="bills_input" type="text" formControlName="paymentDate" />
+        
+        <p class="bills_p">Estado del pago</p>
+        <input
+          class="bills_input"
+          type="text"
+          formControlName="paymentStatus"
+        />
+        
+        <p class="bills_p">Método de pago</p>
+        <input
+          class="bills_input"
+          type="text"
+          formControlName="paymentMethod"
+        />
+
+        
+        <div class="card_customers">
+        <label class="customers">Clients:</label>
+        <select name="customers" id="customersList" #customersList>
+          <option
+          *ngFor="let customer of customers"
+          value="{{customer._id}}"
+          >
+          {{customer.name}}
+        </option>
+        </select>
+        <button type="button" (click)="customersAdd(customersList.value)">
+          Add Customer
+        </button>
+        <div *ngFor="let item of customersFiltered">
+          <p>{{ item.name }}</p>
+        </div>
+      </div>
+
+      </div>
+
+      <div class="bills_costs1">
+        
+        <div class="card_products">
+          <label class="products">Products:</label>
+          <select name="products" id="productsList" #productsList>
+            <option
+            *ngFor="let product of products"
+            value="{{product._id}}"
+            >
+            {{product.productReference}}
+          </option>
+          </select>
+          <button type="button" (click)="productsAdd(productsList.value)">
+            Add Product
+          </button>
+          <div *ngFor="let item of productsFiltered">
+            <p>{{ item.productReference }}</p>
+          </div>
+        </div>
+
+
+        <p class="bills_p">Precio por unidad</p>
+        <input class="bills_input" type="text" formControlName="pricePerUnit" />
+        
+
+        <p class="bills_p">Cantidad</p>
+        <input class="bills_input" type="text" formControlName="quantity" />
+        
+      </div>
+
+      <div class="bills_costs2">
+        <p class="bills_p">Precio total</p>
+        <input class="bills_input" type="text" formControlName="totalPrice" />
+        
+
+        <p class="bills_p">Impuestos</p>
+        <input class="bills_input" type="text" formControlName="tax" />
+        
+
+        <p class="bills_p">Descuento cliente</p>
+        <input
+          class="bills_input"
+          type="text"
+          formControlName="clientDiscount"
+        />
+        
+
+        <p class="bills_p">Costes de envío</p>
+        <input class="bills_input" type="text" formControlName="shipmentCost" />
+        
+      </div>
+      <button class="form_button" type="button" (click)="onSubmit()">Guardar</button>
+    </form>
+  </div>
+</div>
+<div class="bottom_box">
+  <div class="bottom">
+    <p></p>
+  </div>
+</div>

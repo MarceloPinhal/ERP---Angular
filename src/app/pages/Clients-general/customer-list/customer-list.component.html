@@ -1,0 +1,52 @@
+<app-dashboard></app-dashboard> 
+<div class="top_box">
+  <div class="top">
+    <button [routerLink]="['create']" class="create-button">
+      <p >Añadir un cliente</p>
+    </button>
+    <p class="top_p">Lista de clientes</p>
+  </div>
+</div>
+
+
+<app-loading-component *ngIf="!customerList"></app-loading-component>
+
+<div class="list_container">
+  <div class="filter_provider">
+    <p class="provider_p">Buscar cliente</p>
+    <input
+    class="provider_input"
+    type="text"
+    #customerName
+    (input)="customerFind(customerName.value)"
+    placeholder="Nombre del cliente"
+  />
+  </div>
+  
+  <div *ngIf="filteredCustomerList.length > 0" class="list__card">
+    <div *ngFor="let customer of filteredCustomerList" class="list__all" routerLink="/customers/detail/{{ customer._id }}">
+      <div class="list_box">
+        <p class="list__p_name">{{ customer.name }}</p>
+      </div>
+      <div class="list_box_2">
+        <ul>
+          <li *ngFor="let contact of customer.contact">
+            <p class="list__p_contact">{{ contact.phone }}</p> 
+            <p class="list__p_contact">{{ contact.mail }}</p>
+          </li>
+        </ul>
+      </div>
+      <div class="list_box_3">
+        <p class="list__p_country">{{ customer.country }}</p>
+      </div>
+    </div>
+
+
+  </div>
+  <p *ngIf="filteredCustomerList.length === 0">No se encontraron clientes.</p>
+  
+  
+</div>
+
+<app-footer></app-footer>
+

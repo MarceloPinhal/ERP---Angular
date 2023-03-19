@@ -1,0 +1,62 @@
+<app-dashboard></app-dashboard> 
+<app-loading-component *ngIf="!billsFiltered"></app-loading-component>
+
+<div class="top_box">
+  <div class="top">
+    <button
+    routerLink='create'
+    class="list__button"
+    >
+    Crear Factura
+    </button>
+    <p class="top_p">Lista de Facturas</p>
+  </div>
+</div>
+
+
+
+<div class="select_contain">
+  <select class="select" name="billFilter"  (change)="billStateFind(billState.value)" #billState >
+    <option value="pagado" >Liquidadas</option>
+    <option value="no pagado" >Pendientes</option>
+    <option value="all bills">Ver Todas</option>
+  </select>
+  <!-- <button class="seeAll-btn" (click)="seeAllBills()">Ver Todas</button> -->
+  </div>
+
+
+
+
+
+<div class="list_container">
+
+    <div class="list__card" *ngIf="billsFiltered">
+
+    <div 
+    class="list__all" 
+    *ngFor="let bill of billsFiltered; 
+    let index = index" 
+    (click)="navigateToDetails(bill._id)"
+    >
+
+    <div class="list_box">
+      <p class="list__p_name">Número de factura: {{bill.billNumber}}</p>
+    </div>
+
+    <div *ngIf="bill.customer !== null" class="list_box_2">
+      <p class="list__p_contact">Cliente: {{bill.customer.name}}</p>
+    </div>
+    
+    <div class="list_box_3">
+      <p *ngIf ="bill.paymentStatus === 'pagado'"class="list__p_country">Liquidada</p>
+      <p *ngIf ="bill.paymentStatus === 'no pagado'"class="list__p_country">Pendiente</p>    
+    </div>
+
+       
+    </div>
+  </div>
+
+
+</div>
+
+<app-footer></app-footer>

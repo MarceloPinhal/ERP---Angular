@@ -1,0 +1,50 @@
+<app-dashboard></app-dashboard> 
+<div class="top_box">
+  <div class="top">
+    <p class="top_p">Aprovisionamiento</p>
+  </div>
+</div>
+
+
+
+  <div *ngIf="provisioningList" class="provisioning__container">
+    <div class="filter_provider">
+      <p class="provider_p">Buscar aprovisionamiento</p>
+      <input
+      class="provider_input"
+      type="text"
+      #provisioningName
+      (input)="provisioningFind(provisioningName.value)"
+      placeholder="Código del aprovisionamiento"
+      
+    />
+    </div>
+    <button [routerLink]="['create']" class="list__button">
+      <p class="list_p__button">Añadir un aprovisionamiento</p>
+    </button>
+    <div *ngFor="let provisioning of provisioningList" class="provider">
+      <ng-template [ngIf]="provisioning.idProvider !== null">
+        <p class="list__p_provider">
+         Proveeoder: {{ provisioning.idProvider.name }}
+        </p>
+        <p class="list__p_phone">
+          CIF:
+          {{ provisioning.idProvider.taxIdentificationNumber }}
+        </p>
+      </ng-template>
+      <p class="list__p_name">
+        Código: {{ provisioning.code }}
+      </p>
+
+      <button type="button" (click)="deleteProvisioning(provisioning._id)" class="list_button_delete">
+        <p class="list_p__delete">Eliminar</p>
+      </button>
+      
+    </div>
+  </div>
+
+
+
+
+
+<app-footer></app-footer>

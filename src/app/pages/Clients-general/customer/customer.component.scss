@@ -1,0 +1,192 @@
+.top_box{
+//  border: solid 2px black;
+ height: 6%;
+ display: flex;
+ align-items: center;
+ justify-content:flex-end;
+ 
+ .top{
+  border-radius: 0 0 0 30px;
+  border-bottom: solid 15px var(--grey-light);
+  border-left: solid 15px var(--grey-light);
+  background-color: var(--red-light);
+  width: 50%;
+  
+
+  & .top_p{
+    color:var(--white);
+    font-size: 1.5rem;
+    text-align: right;
+    padding: 1rem;
+  
+}
+}
+}
+
+
+.customer{
+  
+  height: 89vh; //? Aquí es donde cambio el tamaño
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+
+  & .customer_card{
+    border-right: solid 40px #cb3b28ae;
+    border-bottom: solid 30px #cb3b28ae;
+    border-radius: 0 0 5rem 0;
+    width: 150vh;
+    height: 80vh;
+    background-color: var(--grey-light);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+
+    .decoration{
+      border: solid 1px var(--red-light);
+      width:100%;
+      text-align: right;
+      font-size: 2rem;
+      color:white;
+      background-color: var(--red-light);
+
+      & .decoration_p{
+        margin:1rem;
+        
+      }
+    }
+}
+}
+
+
+.form {
+  height: 67vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 0 0 3rem 0;
+
+.general{
+  width: 100%;
+  height: 6em;
+  display: flex;
+  flex-direction: column;
+
+
+  &__title{
+    width:100%;
+    display: flex;
+    height: 2em;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 4em;
+    .title{
+      &__name{
+        text-align: center;
+        color: var(--red-light);
+        font-size: 1.5rem;
+        font-weight: bolder;
+      }
+    }
+  }
+  &__inputs{
+    cursor: pointer;
+    display: flex;
+    height: 4em;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 7em;
+    gap: 3em;
+
+    .inputs{
+      &__block{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .block{
+
+        &__input{
+          border: solid 3px var(--red-light);
+         
+          border-radius: 6px;
+        }
+        &__button {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          font-weight: bolder;
+          font-size: 1.2rem;
+          display: inline-block;
+          padding: 6px 10px;
+          border: none;
+          border-radius: 8px;
+          background-color: red;
+          color: white;
+          box-shadow: 0px 2px 2px rgb(0 0 0 / 25%);
+          transition: background-color 0.2s ease-in-out, 
+          color 0.2s ease-in-out, 
+          box-shadow 0.2s ease-in-out;
+        }
+        &__button:hover {
+          background-color: white;
+          color: red;
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        }
+        }
+      }
+    }
+  }
+  
+}
+
+
+  & .form_button {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 7em;
+    height: 3em;
+    font-weight: bolder;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 1rem;
+    background-color: red;
+    color: white;
+    box-shadow: 0px 2px 2px rgb(0 0 0 / 25%);
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  }
+
+  & .form_button:hover {
+    background-color: white;
+    color: red;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+}
+::placeholder{
+  color: var(--red);
+  font-size: 13px;
+  font-weight: 600;
+  position: absolute;
+  top: 1px;
+  background-color: white;
+  padding: 0 20px;
+}
+
+.radio {
+  cursor: pointer;
+  gap:  5px;
+  width: 250px;
+  display: flex;
+  
+}
+
+
+
+
+

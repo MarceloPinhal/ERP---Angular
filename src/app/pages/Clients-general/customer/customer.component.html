@@ -1,0 +1,197 @@
+<app-dashboard></app-dashboard>
+
+
+
+<div class="top_box">
+  <div class="top">
+    <p class="top_p">Carles Cornadó</p>
+  </div>
+</div>
+
+
+
+
+<div class="customer">
+
+  <div class="customer_card">
+    <div class="decoration">
+      <p class="decoration_p">Clientes</p>
+    </div>
+    <form class="form" [formGroup]="customerForm">
+
+        <div class="general">
+          
+          <div class="general__title">
+            <p class="title__name">Datos de la empresa:</p>
+          </div>
+
+          <div class="general__inputs empresa">
+
+            <div class="inputs__block">
+              <input
+                class="block__input"
+                placeholder="Nombre"
+                type="text"
+                formControlName="name"
+              />
+            </div>
+            <div class="inputs__block">
+              <input
+                class="block__input"
+                type="text"
+                formControlName="taxIdentificationNumber"
+                placeholder="C.I.F"
+              />
+            </div>
+
+            <!-- <div class="inputs__block">
+              <input
+                class="block__input"
+                type="img"
+                formControlName="logo"
+                placeholder="Logo"
+              />
+            </div> -->
+        </div>
+      </div>
+
+
+        <div class="general">
+
+          <div class="general__title">
+            <p class="title__name">Dirección:</p>
+          </div>
+
+          <div class="general__inputs direction">
+            <div class="inputs__block">
+              <input
+                class="block__input"
+                type="text"
+                formControlName="country"
+                placeholder="País"
+              />
+            </div>
+            <div class="inputs__block">
+              <input
+                class="block__input"
+                type="text"
+                formControlName="city"
+                placeholder="Ciudad"
+              />
+            </div>
+            <div class="inputs__block">
+              <input
+                class="block__input"
+                type="text"
+                formControlName="cityCode"
+                placeholder="C.P."
+              />
+            </div>
+            <div class="inputs__block">
+              <input
+                class="block__input"
+                type="text"
+                formControlName="address"
+                placeholder="Dirección"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="general">
+
+          <div class="general__title">
+            <p class="title__name">Contacto:</p>
+          </div>
+
+          <div class="general__inputs contact">
+
+          
+            <div class="inputs__block">
+              <input
+                class="block__input"
+                type="text"
+                formControlName="phone"
+                placeholder="phone"
+                #phone
+                id="phoneInput"
+              />
+            </div>
+            <div class="inputs__block">
+              <input
+                class="block__input"
+                type="text"
+                formControlName="email"
+                placeholder="email"
+                #mail
+                id="mailInput"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="general">
+
+          <div class="general__title">
+            <p class="title__name">Envío:</p>
+          </div>
+
+          <div class="general__inputs envio">
+
+            <div class="inputs__block">
+              <input
+                class="block__input"
+                type="text"
+                formControlName="discount"
+                placeholder="Descuento"
+              />
+            </div>
+
+            <div class="inputs__block">
+              <div class="block__input radio">
+              <p>Portes de envio:</p>
+                <div class="input-radio">
+                <label for="yes">
+                  Si
+              <input
+              
+                class="block__input"
+                type="radio"
+                formControlName="shipmentFree"
+                value="true"
+                
+              />
+             
+            </label>
+            <label for="no">
+              No
+              <input
+                class="block__input"
+                type="radio"
+                formControlName="shipmentFree"
+                value="false"
+                
+              />
+            </label>
+          </div>
+        </div>
+            </div>
+          </div>
+        </div>
+          
+        <div>
+          <ng-template [ngIf]="!id">
+          <button class="form_button" (click)="addCustomer()">Crear</button>
+        </ng-template>
+        <ng-template [ngIf]="id">
+          <button class="form_button" (click)="editCustomer()">Editar</button>
+        </ng-template>
+        </div>
+     
+    </form>
+  </div>
+</div>
+ 
+
+   
+<app-footer></app-footer>

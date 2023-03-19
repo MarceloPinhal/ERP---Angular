@@ -1,0 +1,50 @@
+<app-dashboard></app-dashboard> 
+<div class="top_box">
+  <div class="top">
+    <p class="top_p">Detalles de proveedores</p>
+  </div>
+</div>
+
+<div class="provider">
+  <div class="provider__container">
+    <div *ngIf="provider" class="container_card">
+      <div class="card__name">
+        <h3 class="card__name">{{ provider.name }}</h3>
+      </div>
+
+      <div class="card__info">
+        <div class="info__left">
+          <p class="left__data">CIF: {{ provider.taxIdentificationNumber }}</p>
+          <p class="left__data">País : {{ provider.country }}</p>
+          <p class="left__data">Ciudad : {{ provider.city }}</p>
+          <p class="left__data">Código Postal :{{ provider.cityCode }}</p>
+          <p class="left__data">Dirección : {{ provider.address }}</p>
+          <p class="left__data">Phone : {{ provider.phone }}</p>
+          <p class="left__data">Correo : {{ provider.email }}</p>
+          <p class="left__data">Envio gratuíto : {{ provider.shipmentFree }}</p>
+        </div>
+
+        <div class="info__right">
+          <div class="right__logo">
+            <img class="logo__img" src="https://www.barcelonasonrie.com/wp-content/uploads/2015/07/Instrumental-odontol%C3%B3gico-3008x1504.jpg" alt="Logo" />
+          </div>
+        </div>
+
+      </div>
+
+      <div class="card__buttons">
+        <button
+          routerLink="/providers/edit/{{ provider._id }}"
+          class="buttons__boton"
+        >
+          Editar Provedor
+        </button>
+
+        <button class="buttons__boton" (click)="deleteProvider(provider._id)">Eliminar proveedor</button>
+    </div>
+
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

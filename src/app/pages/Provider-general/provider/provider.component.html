@@ -1,0 +1,193 @@
+<app-dashboard></app-dashboard>
+<div class="top_box">
+  <div class="top">
+    <p class="top_p">Carles Cornadó</p>
+  </div>
+</div>
+
+<app-loading-component *ngIf="!provider"></app-loading-component>
+
+<div class="customer" *ngIf="!id">
+
+  <form class="form" [formGroup]="providerForm">
+
+    <div class="customer_card">
+      <div class="decoration">
+        <p class="decoration_p">Proveedores</p>
+      </div>
+
+      <div class="customer_container">
+        <div class="card_company">
+          <div class="card_name">
+            <p class="card_p">Nombre</p>
+            <input class="card_input" type="text" formControlName="name" />
+          </div>
+
+          <div class="card_cif">
+            <p class="card_p">Identificación Fiscal</p>
+            <input
+              class="card_input"
+              type="text"
+              formControlName="taxIdentificationNumber"
+            />
+          </div>
+
+          <div class="card_country">
+            <p class="card_p">País</p>
+            <input class="card_input" type="text" formControlName="country" />
+          </div>
+
+          <div class="card_city">
+            <p class="card_p">Ciudad</p>
+            <input class="card_input" type="text" formControlName="city" />
+          </div>
+        </div>
+
+        <div class="card_direction">
+          <div class="card_cityCode">
+            <p class="card_p">Código Postal</p>
+            <input class="card_input" type="text" formControlName="cityCode" />
+          </div>
+
+          <div class="card_ address">
+            <p class="card_p">Dirección</p>
+            <input class="card_input" type="text" formControlName="address" />
+          </div>
+
+          <div class="card_ contact">
+            <p class="card_p">Contacto</p>
+
+            <input
+              class="card_input"
+              type="text"
+              formControlName="phone"
+              placeholder="teléfono"
+              #phone
+            />
+            <input class="card_input" 
+            type="text" 
+            formControlName="email"
+            placeholder="e-mail" 
+            #mail 
+            />
+          </div>
+        </div>
+    
+        <div class="card_envio">
+          <div class="card_ shipmentFree">
+            <p class="card_p">Portes de envío</p>
+            <input
+              class="card_input"
+              type="text"
+              formControlName="shipmentFree"
+            />
+          </div>
+
+          <div class="card_ observation">
+            <p class="card_p">Observaciones</p>
+            <input
+              class="card_input"
+              type="text"
+              formControlName="observations"
+            />
+          </div>
+        </div>
+        <button class="form_button" (click)="submitProvider()">submit</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<!-- Formulario Edit  -->
+
+<div class="customer" *ngIf="id">
+
+  <form class="form" [formGroup]="providerForm">
+    
+    <div class="customer_card">
+      <div class="decoration">
+        <p class="decoration_p">Proveedores</p>
+      </div>
+
+      <div class="customer_container">
+        <div class="card_company">
+          <div class="card_name">
+            <p class="card_p">Nombre</p>
+            <input class="card_input" type="text" formControlName="name" />
+          </div>
+
+          <div class="card_cif">
+            <p class="card_p">Identificación Fiscal</p>
+            <input
+              class="card_input"
+              type="text"
+              formControlName="taxIdentificationNumber"
+            />
+          </div>
+
+          <div class="card_country">
+            <p class="card_p">País</p>
+            <input class="card_input" type="text" formControlName="country" />
+          </div>
+
+          <div class="card_city">
+            <p class="card_p">Ciudad</p>
+            <input class="card_input" type="text" formControlName="city" />
+          </div>
+        </div>
+
+        <div class="card_direction">
+          <div class="card_cityCode">
+            <p class="card_p">Código Postal</p>
+            <input class="card_input" type="text" formControlName="cityCode" />
+          </div>
+
+          <div class="card_ address">
+            <p class="card_p">Dirección</p>
+            <input class="card_input" type="text" formControlName="address" />
+          </div>
+
+          <div class="card_ contact">
+            <p class="card_p">Contacto</p>
+
+            <input
+              class="card_input"
+              type="text"
+              formControlName="phone"
+              placeholder="teléfono"
+              #phone
+            />
+            <input class="card_input" 
+            type="text" 
+            formControlName="email"
+            placeholder="e-mail" 
+            #mail 
+            />
+          </div>
+        </div>
+
+        <div class="card_envio">
+          <div class="card_ shipmentFree">
+            <p class="card_p">Portes de envío</p>
+            <input
+              class="card_input"
+              type="text"
+              formControlName="shipmentFree"
+            />
+          </div>
+
+          <div class="card_ observation">
+            <p class="card_p">Observaciones</p>
+            <input
+              class="card_input"
+              type="text"
+              formControlName="observations"
+            />
+          </div>
+          
+        </div>
+        <button class="form_button" (click)="submitProvider()">Editar</button>
+      </div>
+    </div>
+  </form>
+</div>

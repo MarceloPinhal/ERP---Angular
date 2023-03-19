@@ -1,0 +1,43 @@
+<app-dashboard></app-dashboard> 
+
+<app-loading-component *ngIf="!deliveryNotesList"></app-loading-component>
+
+<div class="bills__container" *ngIf="deliveryNotesList">
+    <button
+    routerLink='create'
+    class="bill__button"
+  >
+    Crear albarán
+  </button>
+
+  <div class="filter_provider">
+    <p class="provider_p">Buscar proveedor</p>
+    <input
+    class="provider_input"
+    type="text"
+    #deliveryNotesNum
+    (input)="delNotesFind(deliveryNotesNum.value)"
+    placeholder="Nombre del proveedor"
+    />
+  </div>
+<div class="card-bill" *ngFor="let deliveryNote of deliveryNotesList; let index = index" (click)="navigateToDetails(deliveryNote._id)">
+
+
+
+  <p>Número de albarán: {{deliveryNote.deliveryNotesNum}}</p>
+  <p>Fecha: {{deliveryNote.date}}</p>
+    <h3>Dados cliente:</h3>
+    <p>Nombre cliente: {{deliveryNote.customer.name }}</p>
+
+    <h3>Productos:</h3>
+    <div *ngFor="let item of deliveryNote.idProduct"> 
+        <p>Referencia produto: {{item.productReference}}</p>
+        <p>Referencia Sanitaria: {{item.sanitaryProductReference}}</p>
+    </div>
+    
+    <p>Cantidad:{{deliveryNote.quantity}}</p>
+    <p></p>
+     
+</div>
+
+</div>

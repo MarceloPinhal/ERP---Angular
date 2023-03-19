@@ -1,0 +1,43 @@
+<app-dashboard></app-dashboard> 
+<div class="top_box">
+  <div class="top">
+    <p class="top_p">Lista de proveedores</p>
+    
+  </div>
+</div>
+
+<div class="providers__container">
+
+  <div class="filter_provider">
+  <p class="provider_p">Buscar proveedor</p>
+  <input
+  class="provider_input"
+  type="text"
+  #providerName
+  (input)="providerFind(providerName.value)"
+  placeholder="Nombre del proveedor"
+  
+/>
+</div>
+
+
+  <ng-template [ngIf]="providers">
+    <div
+      class="provider"
+      *ngFor="let provider of providersFiltered; let index = index"
+      (click)="navigateToDetails(provider._id)"
+    >
+      <p class="list__p_provider">Provider: {{ index + 1 }}</p>
+
+      <p class="list__p_name">Name:{{ provider.name }}</p>
+     
+    </div>
+  </ng-template>
+
+  <button [routerLink]="['create']" class="list__button">
+    <p class="list_p__button">Añadir un proveedor</p>
+  </button>
+</div>
+
+
+<app-footer></app-footer>

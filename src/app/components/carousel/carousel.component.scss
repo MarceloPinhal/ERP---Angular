@@ -1,0 +1,48 @@
+.carousel {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .slides {
+    display: flex;
+    width: 200%; /* el doble del ancho de cada slide */
+    transition: transform 0.6s ease;
+  }
+  
+  .slide {
+    width: 50%; /* cada slide ocupa la mitad del ancho del carrusel */
+    height: auto;
+  }
+  
+  .slide img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  
+  .arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    color: #000;
+    cursor: pointer;
+    z-index: 1;
+  }
+  
+  .arrow-left {
+    left: 10px;
+  }
+  
+  .arrow-right {
+    right: 10px;
+  }
+  
+  .arrow:hover {
+    background-color: #000;
+    color: #fff;
+  }
+  

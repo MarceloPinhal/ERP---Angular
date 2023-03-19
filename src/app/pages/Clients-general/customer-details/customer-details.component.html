@@ -1,0 +1,60 @@
+<app-dashboard></app-dashboard> 
+<div class="top_box">
+  <div class="top">
+    <p class="top_p">Detalles de Cliente</p>
+  </div>
+</div>
+<app-loading-component *ngIf="!customer"></app-loading-component>
+<div class="customer" *ngIf="customer">
+  <div class="customer__container">
+    <div  class="container__card">
+      <div class="card__name">
+        <h3 class="card__name">{{ customer.name }}</h3>
+      </div>
+      <div class="card__info">
+        <div class="info__left">
+          <p class="left__data">CIF : {{ customer.taxIdentificationNumber }}</p>
+          <p class="left__data">País : {{ customer.country }}</p>
+          <p class="left__data">Ciudad : {{ customer.city }}</p>
+          <p class="left__data">Código Postal :{{ customer.cityCode }}</p>
+          <p class="left__data">Dirección : {{ customer.address }}</p>
+          <p class="left__data">Telefono : {{ customer.phone }}</p>
+          <p class="left__data">Email : {{ customer.email }}</p>
+          <p class="left__data">Descuento :{{ customer.discount }}</p>
+          <ng-template [ngIf]="customer.shipmentFree === true">
+          <p class="left__data">Envio gratuíto : Si</p>
+        </ng-template>
+        <ng-template [ngIf]="customer.shipmentFree === false">
+        <p class="left__data">Envio gratuíto : No</p>
+      </ng-template>
+        </div>
+        <div class="info__right">
+          <div class="right__logo">
+            <img class="logo__img" src="https://exocad.com/fileadmin/news/2019-11_Swedental_2019.png" alt="Logo" />
+          </div>
+          <div class="right__data">
+            <p *ngFor="let contact of customer.contact">
+              {{ contact.phone }}
+            </p>
+            <p *ngFor="let contact of customer.contact">
+              {{ contact.mail }}
+            </p>
+            <p>{{ customer.observations }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="card__buttons">
+        <button
+          routerLink="/customers/edit/{{ customer._id }}"
+          class="buttons__boton"
+        >
+          Editar Cliente
+        </button>
+        <button class="buttons__boton" (click)="deleteCustomer(customer._id)">Borrar Cliente</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>
+

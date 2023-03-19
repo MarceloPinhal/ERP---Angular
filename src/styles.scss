@@ -1,0 +1,34 @@
+
+
+
+*{
+    box-sizing: border-box;
+    margin:0;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+:root{
+    --red:#822529;
+    --red-light:#cb3b28;
+    --white:#ffffff; 
+    --celest: #12ccd1;
+    --grey:#800084;
+    --grey-dark:#6f716a;
+    --grey-light:#f5f5f5;
+    --green-light:#c1d200;
+    --green-drak:#75bf28;
+    --blue-light:#00c0ce;
+    --blue-dark:#009fd4;
+    --black:#383234;
+}
+::-webkit-scrollbar {
+    width: 10px; /* Ancho del scrollbar */
+    border-radius: 8px; /* Border radius */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #cb3b28; /* Color del thumb */
+    border-radius: 8px; /* Border radius */
+  }
+
+  

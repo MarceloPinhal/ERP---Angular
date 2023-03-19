@@ -1,0 +1,93 @@
+<app-dashboard></app-dashboard> 
+<div class="top_box">
+    <div class="top">
+      <p class="top_p">Carles Cornadó</p>
+    </div>
+  </div>
+  
+  <div class="customer">
+    <div class="customer_card">
+      <div class="decoration">
+        <p class="decoration_p">Crear usuario</p>
+      </div>
+  
+      <form class="form" [formGroup]="userForm" >
+        <div class="card_company">
+          <p class="company_p">Nombre</p>
+          <input
+            class="company_input"
+            type="text"
+            formControlName="name"
+          />
+          <div
+            *ngIf="
+              !userForm.get('name')?.valid &&
+              (userForm.get('name')?.dirty || submitted) &&
+              userForm.get('name')?.hasError('required')
+            "
+          >
+            <p class="required">*Requerido</p>
+          </div>
+  
+          <p class="company_p">Usuario</p>
+          <input
+            class="company_input"
+            type="text"
+            formControlName="user"
+          />
+          <div
+            *ngIf="
+              !userForm.get('user')?.valid &&
+              (userForm.get('user')?.dirty ||
+                submitted) &&
+              userForm
+                .get('user')
+                ?.hasError('required')
+            "
+          >
+            <p class="required">*Requerido</p>
+          </div>
+  
+          <p class="company_p">Contraseña</p>
+          <input
+            class="company_input"
+            type="text"
+            formControlName="password"
+          />
+          <div
+            *ngIf="
+              !userForm.get('user')?.valid &&
+              (userForm.get('user')?.dirty || submitted) &&
+              userForm.get('user')?.hasError('required')
+            "
+          >
+            <p class="required">*Requerido</p>
+          </div>
+          
+          <p class="company_p">Rol</p>
+          <input
+            class="company_input"
+            type="text"
+            formControlName="rol"
+          />
+          <div
+            *ngIf="
+              !userForm.get('user')?.valid &&
+              (userForm.get('user')?.dirty || submitted) &&
+              userForm.get('user')?.hasError('required')
+            "
+          >
+            <p class="required">*Requerido</p>
+          </div>
+
+          
+          <button type="button" (click)="onSubmit()">submit</button>
+          <div class="bottom_box">
+            <div class="bottom">
+              <p></p>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>

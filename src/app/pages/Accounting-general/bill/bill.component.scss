@@ -1,0 +1,218 @@
+*{
+    font-family:Arial, Helvetica, sans-serif;
+  }
+  .top_box{
+  //  border: solid 2px black;
+  //  height: 6%;
+   display: flex;
+   align-items: center;
+   justify-content:flex-end;
+  
+  }
+  .top{
+    border-radius: 0 0 0 30px;
+    border-bottom: solid 15px var(--grey-light);
+    border-left: solid 15px var(--grey-light);
+    background-color: var(--red-light);
+    width: 50%;
+  
+    & .top_p{
+      color:var(--white);
+      font-size: 1.5rem;
+      text-align: right;
+      padding: 1rem;
+    }
+  }
+  
+  .bills{
+    // border: solid 2px red;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+  
+    & .bills_card{
+      border-right: solid 40px #cb3b28ae;
+      border-bottom: solid 30px #cb3b28ae;
+      border-radius: 0 0 5rem 0;
+      // width: 150vh;
+      height: 80vh;
+      background-color: var(--grey-light);
+  
+      .decoration{
+        border: solid 1px var(--red-light);
+        height:10%;
+        width:100%;
+        text-align: right;
+        font-size: 2rem;
+        color:white;
+        background-color: var(--red-light);
+  
+        & .decoration_p{
+          margin:1rem;
+          padding:0.5rem;
+        }
+      }
+    
+  }
+  }
+  
+  .form {
+    // border: solid 3px rgb(79, 24, 160);
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:space-around;
+    border-radius: 0 0 5rem 0;
+  
+    & .form_button {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 10%;
+      height: 5%;
+      font-weight: bolder;
+      font-size: 1.2rem;
+      display: inline-block;
+      padding: 30px;
+      border: none;
+      border-radius: 1rem;
+      background-color: red;
+      color: white;
+      box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+      transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out,
+      box-shadow 0.2s ease-in-out;
+    }
+    & .form_button:hover {
+      background-color: white;
+      color: red;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+  }
+  
+  .bills_company{
+    // border: solid 2px green;
+    width: 100%;
+    height: 20%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+  
+    & .bills_p{
+      // border: solid 1px red;
+      text-align: center;
+      height: 20%;
+      color: var(--red-light);
+      font-size: 1.5rem;
+      font-weight: bolder;
+    }
+  
+  
+    & .bills_input{
+      margin:10px;
+      height: 20%;
+      border: solid 3px var(--red-light);
+      background: var(--grey-light);
+    }
+  
+    & .bills_input:focus{
+      outline:none;
+      border: solid 3px var(--red);
+    }
+  }
+  
+  .bills_direction{
+    // border: solid 2px blue;
+    width: 100%;
+    height: 20%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+  
+    & .bills_p{
+      // border: solid 1px red;
+      text-align: center;
+      height: 20%;
+      color: var(--red-light);
+      font-size: 1.5rem;
+      font-weight: bolder;
+    }
+  
+    & .bills_input{
+      // border: solid 1px blue;
+      margin:10px;
+      height: 20%;
+      border: transparent;
+      border: solid 3px var(--red-light);
+      background: var(--grey-light);
+    }
+  }
+  
+  .bills_costs1{
+    // border: solid 3px black;
+    margin-bottom: 2rem;
+    width: 100%;
+    height: 20%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+  
+    & .bills_p{
+      // border: solid 1px red;
+      text-align: center;
+      height: 20%;
+      color: var(--red-light);
+      font-size: 1.5rem;
+      font-weight: bolder;
+    }
+  
+    & .bills_input{
+      // border: solid 1px blue;
+      margin:10px;
+      height: 20%;
+      border: transparent;
+      border: solid 3px var(--red-light);
+      background: var(--grey-light);
+    }
+  }
+
+  .bills_costs2{
+    // border: solid 3px black;
+    margin-bottom: 2rem;
+    width: 100%;
+    height: 20%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+  
+    & .bills_p{
+      // border: solid 1px red;
+      text-align: center;
+      height: 20%;
+      color: var(--red-light);
+      font-size: 1.5rem;
+      font-weight: bolder;
+    }
+  
+    & .bills_input{
+      // border: solid 1px blue;
+      margin:10px;
+      height: 20%;
+      border: solid 3px var(--red-light);
+      background: var(--grey-light);
+    }
+  }
+  
+  .bottom_box{
+    border: solid 2px black;
+  }
+  .bottom{
+    background-color: red;
+  }

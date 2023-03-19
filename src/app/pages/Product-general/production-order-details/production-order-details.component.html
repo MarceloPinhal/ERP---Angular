@@ -1,0 +1,45 @@
+<app-dashboard></app-dashboard> 
+<div class="top_box">
+  <div class="top">
+    <p class="top_p">Detalles de Orden de Fabricación</p>
+  </div>
+</div>
+<app-loading-component *ngIf="!productionOrder"></app-loading-component>
+<div class="production-order" *ngIf="productionOrder">
+  <div class="production-order__container">
+    <div class="production-order__container-columns">
+      <div class="production-order__container-columns_column">
+        <div>
+          <p class="production-order__container-column__p">Num. de pedido: {{ productionOrder.orderNumber }}</p>
+          <p class="production-order__container-column__p">Cantidad: {{ productionOrder.quantity }}</p>
+          <p class="production-order__container-column__p">Fecha: {{ productionOrder.date }}</p>
+          <p class="production-order__container-column__p">Finalización esperada: {{ productionOrder.expectedEnd }}</p>
+        </div>
+        <div *ngFor="let component of productionOrder.idComponent">
+          <p class="production-order__container-column__p">Componente:</p>
+          <p class="production-order__container-column__p">Num. de ref.: {{ component.componentReference }}</p>
+          <p class="production-order__container-column__p">Descripción: {{ component.description }}</p>
+        </div>
+        <div>
+          <p class="production-order__container-column-p">Procesos:</p>
+          <div *ngFor="let process of productionOrder.processes">
+            <p class="production-order__container-column__p">{{ process.name }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="production-order__container-columns_column">
+        <div *ngFor="let product of productionOrder.idProduct">
+          <p class="production-order__container-column__p">Producto:</p>
+          <p class="production-order__container-column__p">Num. de ref.: {{ product.productReference }}</p>
+          <p class="production-order__container-column__p">Descripción: {{ product.description }}</p>
+          <p class="production-order__container-column__p">Num. de ref. sanitaria: {{ product.sanitaryProductReference }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="buttons">
+      <button type="button" class="buttons-button" (click)="deleteProdOrder(productionOrder._id)">Borra esta orden</button>
+      <button type="button" class="buttons-button" >Edita esta orden</button>
+    </div>
+  </div>
+  
+</div>

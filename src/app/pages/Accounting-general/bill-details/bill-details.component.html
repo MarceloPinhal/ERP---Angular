@@ -1,0 +1,58 @@
+<app-dashboard></app-dashboard>
+
+<div class="top_box">
+  <div class="top">
+    <p class="top_p">Detalles de factura</p>
+  </div>
+</div>
+
+<div *ngIf="bill">
+  <div class="bill">
+    <div class="bill__container">
+      <div class="card__title">
+        <h2>Cliente: {{ bill.customer.name }}</h2>
+        <p>Número de factura: {{ bill.billNumber }}</p>
+      </div>
+
+      <div class="card__info">
+        <div class="left-data">
+          <h4>Datos Fiscales:</h4>
+          <p>Número de pedido: {{ bill.orderNumber }}</p>
+          <p>Fecha: {{ bill.date }}</p>
+
+          <p>Precio total: {{ bill.totalPrice }}</p>
+          <p>Precio por unidad: {{ bill.pricePerUnit }}</p>
+          <p>Cantidad: {{ bill.quantity }}</p>
+
+          <p>Estado del pago: {{ bill.paymentStatus }}</p>
+          <p>Fecha del pago: {{ bill.paymentDate }}</p>
+          <p>Método de pago: {{ bill.paymentMethod }}</p>
+          <p>Impuesto: {{ bill.tax }}</p>
+          <p>Coste de envío: {{ bill.shipmentCost }}</p>
+        </div>
+
+        <div class="right-data">
+          <div *ngIf="bill.customer !== null">
+            <h4>Datos del cliente:</h4>
+            <p>CIF: {{ bill.customer.taxIdentificationNumber }}</p>
+            <p>Descuento del cliente: {{ bill.customer.clientDiscount }}</p>
+            <p>País: {{ bill.customer.country }}</p>
+
+            <h4>Datos Producto:</h4>
+            <p>Referencia de producto 2: {{ bill.productRef2 }}</p>
+            <p>Referencia de producto 1: {{ bill.productRef1 }}</p>
+            <p>Referencia: {{ bill.product.productReference }}</p>
+            <p>Precio: {{ bill.product.price }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="btn-container">
+        <button class="btn" (click)="generatePDF(bill)">Generar PDF</button>
+        <div></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<app-footer></app-footer>

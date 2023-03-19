@@ -1,0 +1,147 @@
+.top_box {
+  //  border: solid 2px black;
+  height: 6%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  .top {
+    border-radius: 0 0 0 30px;
+    border-bottom: solid 15px var(--grey-light);
+    border-left: solid 15px var(--grey-light);
+    background-color: var(--red-light);
+    width: 50%;
+
+    & .top_p {
+      color: var(--white);
+      font-size: 1.5rem;
+      text-align: right;
+      padding: 1rem;
+    }
+  }
+}
+
+.process {
+  .process__card {
+    border-bottom: solid 5px var(--red-light);
+    border-left: solid 5px var(--red-light);
+    // background-color: var(--red-light);
+    height: 5vh;
+    width: 40%;
+    margin: 2rem;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+
+    .card__h2 {
+      text-align: left;
+      padding: 1rem;
+      color: var(--red-light);
+    }
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 65vh;
+  background-color: #f9f9f9;
+
+  .container__studio {
+    width: 600px;
+    height: 400px;
+    background-color: var(--red-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+
+    .studio__crud,
+    .studio__view {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .studio__crud {
+      background-color: transparent;
+
+      .crud__form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .addProcess_p{
+            color: white;
+            font-size: 1.5rem;
+            border-bottom: 1px solid white;
+            margin:1rem;
+        }
+
+        .editProcess_p{
+            color: white;
+            font-size: 1.5rem;
+            border-bottom: 1px solid white;
+            margin:1rem;
+        }
+
+        .form__input {
+          margin-bottom: 20px;
+          padding: 10px;
+          border: none;
+          border-radius: 5px;
+          box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+          font-size: 16px;
+          color: white;
+          background-color: transparent;
+          outline: none;
+        }
+
+        .form__button {
+          padding: 10px 20px;
+          border: none;
+          border-radius: 5px;
+          background-color: white;
+          color: #ff0000;
+          font-size: 16px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+
+          &:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.3);
+          }
+        }
+      }
+    }
+
+    .studio__view {
+      background-color: transparent;
+
+      .view__card {
+        width: 200px;
+        height: 200px;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        color: black;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+
+        .card__info {
+          text-align: center;
+          padding: 20px;
+
+          .info__h3 {
+            font-size: 24px;
+            color: rgb(6, 6, 6);
+            margin-bottom: 10px;
+          }
+        }
+      }
+    }
+  }
+}

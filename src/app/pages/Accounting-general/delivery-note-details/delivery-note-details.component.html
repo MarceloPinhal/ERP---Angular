@@ -1,0 +1,22 @@
+<app-dashboard></app-dashboard> 
+
+<button type="button" (click) = editDeliveryNote()>EDITAR</button>
+<button type="button" (click) = deleteDeliveryNote(deliveryNote._id)>BORRAR</button>
+
+<div>
+    <ng-template [ngIf]=" deliveryNote">
+ 
+    <p>Número de albarán: {{deliveryNote.deliveryNotesNum}}</p>
+    <p>Fecha: {{ deliveryNote.date }}</p>
+    <h3>Cliente:</h3>
+    <p>Nombre: {{deliveryNote.customer.name}}</p>
+    <p>CIF: {{deliveryNote.customer.taxIdentificationNumber}}</p>
+    <h3>Productos:</h3>
+      <div *ngFor="let product of deliveryNote.idProduct">
+        <p>Referencia:{{product.productReference}}</p>
+        <p>Precio:{{product.price}}</p>
+      </div>
+  
+</ng-template>
+</div>
+

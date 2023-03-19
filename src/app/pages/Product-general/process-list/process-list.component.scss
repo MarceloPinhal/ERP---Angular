@@ -1,0 +1,121 @@
+.top_box {
+  //  border: solid 2px black;
+  height: 6%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  .top {
+    border-radius: 0 0 0 30px;
+    border-bottom: solid 15px var(--grey-light);
+    border-left: solid 15px var(--grey-light);
+    background-color: var(--red-light);
+    width: 50%;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+
+    & .top_p {
+      color: var(--white);
+      font-size: 1.7rem;
+      text-align: right;
+      padding: 1rem;
+    }
+  }
+}
+.provider_input{
+  padding:0.5rem;
+  background-color: rgba(255, 255, 255, 0.962);
+  cursor: pointer;
+}
+
+.filter_provider{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding:10px;
+  border: solid 1px var(--red-light);
+  background-color: var(--red-light);;
+  border-radius: 1rem;
+  cursor: pointer;
+
+& .provider_p{
+  margin:1rem;
+  color: white;
+  font-size: 1rem;
+  font-weight: bolder;
+ ;
+  
+}
+}
+
+.list_container {
+//   border: solid 5px blue;
+//   height: 80vh;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .list_box {
+    // border: solid 1px black;
+    width: 100%;
+    text-align: center;
+  }
+
+  .list__card {
+    // border: solid 2px black;
+    width: 75%;
+    // height: 70vh;
+
+    .list__all {
+      // border: solid 1px red;
+      margin: 1rem;
+      border-bottom: var(--red-dark);
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 20px;
+      border-bottom: 1px solid var(--grey-dark);
+      justify-content: space-between;
+
+      .list__p_name {
+        color: var(--blue-dark);
+        font-size: 1.5rem;
+      }
+
+    }
+  }
+
+  .list__button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 10%;
+    height: 5%;
+    font-weight: bolder;
+    font-size: 1.2rem;
+    display: inline-block;
+    padding: 30px;
+    border: none;
+    border-radius: 1rem;
+    background-color: red;
+    color: white;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out,
+      box-shadow 0.2s ease-in-out;
+  }
+
+  & .list__button:hover {
+    background-color: white;
+    color: red;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  .list_p__button {
+    margin: 0;
+  }
+}
+
+

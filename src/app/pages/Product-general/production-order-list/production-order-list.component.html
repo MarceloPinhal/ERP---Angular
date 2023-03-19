@@ -1,0 +1,56 @@
+<app-dashboard></app-dashboard> 
+<div class="top_box">
+    <div class="top">
+      <p class="top_p">Lista de ordenes de fabricación</p>
+    </div>
+  </div>
+  <app-loading-component *ngIf="!productionOrderList"></app-loading-component>
+<div class="list_container" *ngIf="productionOrderList">
+  <div class="list_container">
+  <div class="filter_provider">
+    <p class="provider_p">Buscar orden de fabricación</p>
+    <input
+    class="provider_input"
+    type="text"
+    #prodOrderName
+    (input)="prodOrderFind(prodOrderName.value)"
+    placeholder="Número de orden"
+    
+  />
+  </div>
+  <button class="list__button" [routerLink]="['create']">
+    <p class="list_p__button">Crear orden de fabricación</p>
+  </button>
+    
+<div class="list__card" *ngFor="let productionOrder of productionOrderList; let index = index" (click)="navigateToDetails(productionOrder._id)">
+    <div class="list__all">
+    <div class="list_box">
+    <p class="list__p_order">Orden de producción: {{index+1}}</p>
+</div> 
+<div class="list_box_2">
+    <p class="list__p_date">Número de pedido:{{productionOrder.orderNumber}}</p>
+</div>
+<div class="list_box_3">
+    <p class="list__p_expected">Fecha:{{productionOrder.date}}</p>
+</div>
+</div>
+</div>
+  
+</div>
+
+<app-footer></app-footer>
+
+<!-- <p>orderNumber:{{productionOrder.orderNumber}}</p> 
+    <p>quantity:{{productionOrder.quantity}}</p>    -->
+    
+    <!-- <div *ngFor="let item of productionOrder.idComponent"> 
+        <p>ID Component: {{item}}</p>
+    </div>
+    
+    <div *ngFor="let item of productionOrder.idProduct"> 
+        <p>ID Product: {{item}}</p>
+    </div>
+    
+    <div *ngFor="let item of productionOrder.processes"> 
+        <p>Processes:{{item}}</p>
+    </div> -->

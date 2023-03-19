@@ -1,0 +1,19 @@
+.footer_box {
+    margin-top:2rem;
+    height: auto;
+    box-shadow: 2px 2px 20px rgb(0, 0, 0);
+  
+    & .footer_container {
+      height: 7vh;
+      background-color: var(--red-light);
+    }
+    & .footer_p {
+      color: white;
+      font-size: 2rem;
+      font-weight: bolder;
+      justify-content: center;
+      text-align: right;
+      padding-top: 1rem;
+      padding-right: 1rem;
+    }
+  }

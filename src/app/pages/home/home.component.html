@@ -1,0 +1,78 @@
+<app-loading-component *ngIf="loading"></app-loading-component>
+<div class="home_container">
+  <div class="home_logo">
+    <img
+    class="logo"
+    src="../../../assets/Logos/Safident-Logo-Cruz-White.png"
+    alt=""
+    />
+  </div>
+
+  <div class="form_container">
+    <div class="login">
+      <img
+        class="form_logo"
+        src="../../../assets/Logos/Safident-letras-logo.png"
+        alt=""
+        />
+      <form
+        class="form_login"
+        [formGroup]="registerForm"
+        (ngSubmit)="onSubmit()"
+      >
+      <input
+      class="login_input"
+      type="text"
+      formControlName="user"
+      placeholder="Usuario"
+      />
+      <div
+      *ngIf="
+      !registerForm.get('email')?.valid &&
+      registerForm.get('user')?.dirty &&
+      registerForm.get('user')?.hasError('required')
+      "
+      ></div>
+      <div
+      *ngIf="
+      !registerForm.get('user')?.valid &&
+      registerForm.get('user')?.dirty &&
+      registerForm.get('user')?.hasError('minlength')
+      "
+      ></div>
+      
+      <input
+      class="login_input"
+      type="password"
+      formControlName="password"
+      placeholder="Tu contraseña secreta"
+      />
+      <div
+      *ngIf="
+      !registerForm.get('password')?.valid &&
+      registerForm.get('password')?.dirty &&
+      registerForm.get('password')?.hasError('required')
+      "
+      ></div>
+      <div
+      *ngIf="
+      !registerForm.get('password')?.valid &&
+      registerForm.get('password')?.dirty &&
+      registerForm.get('password')?.hasError('minlength')
+      "
+      >
+      >
+        </div>
+        
+        <div class="login_button">
+          <button type="submit" class="btn">login</button>
+        </div>
+      </form>
+    </div>
+    <div class="contact">
+      <a class="contact_link" href="https://www.swiss-ds.com/"
+      >Si aún no eres usuario, contacta con administración</a
+      >
+    </div>
+  </div>
+</div>

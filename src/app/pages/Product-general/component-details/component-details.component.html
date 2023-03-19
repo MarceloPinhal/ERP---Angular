@@ -1,0 +1,44 @@
+<app-dashboard></app-dashboard> 
+<div class="top_box">
+  <div class="top">
+    <p class="top_p">Detalles de componentes</p>
+  </div>
+</div>
+
+<div class="orders">
+  <div class="orders__container">
+    <div class="orders_information">
+    <div class="products_p">
+
+
+
+<app-loading-component *ngIf="!component.equivalences"></app-loading-component>
+<div *ngIf="component.equivalences">
+<button type="button" (click) = editComponent()>EDITAR</button>
+<button type="button" (click) = deleteComponent(component._id)>BORRAR</button>
+
+<!-- <button type="button" (click) = deleteComponent({{component._id}})>BORRAR</button> -->
+
+
+<p>{{ component.componentReference }}</p>
+<p>{{ component.sanitaryComponentReference }}</p>
+<p>{{ component.description }}</p>
+</div>
+
+<div class="buttons">
+<button class="buttons__boton" type="button" (click) = editComponent()>EDITAR</button>
+<button class="buttons__boton" type="button" (click) = deleteComponent(component._id)>BORRAR</button>
+</div>
+</div>
+  </div>
+</div>
+
+
+
+<app-footer></app-footer>
+
+
+
+
+
+

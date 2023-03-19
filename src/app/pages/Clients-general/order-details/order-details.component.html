@@ -1,0 +1,52 @@
+<app-dashboard></app-dashboard> 
+<div class="top_box">
+  <div class="top">
+    <p class="top_p">Lista de clientes</p>
+  </div>
+</div>
+<app-loading-component *ngIf="!order"></app-loading-component>
+<div class="orders" *ngIf="order">
+  <div class="orders__container">
+    <div *ngIf="order" class="container__card">
+      <div class="card__name">
+        <h3 class="name__product">Pedido : {{ order.orderNumber }}</h3>
+      </div>
+      <div class="card__fields">
+        <div class="fields__left"><h3>Detalles del pedido:</h3></div>
+        <div class="fields__right"><h3>Items seleccionados:</h3></div>
+      </div>
+      <div class="card__info">
+        <div class="info__left">
+          <p class="left__data" >Fecha de pedido : {{ order.date }}</p>
+          <!-- <p class="left__data">Id Cliente : {{ order.idCustomer.name }}</p> -->
+          <p class="left__data">Estado del Pedido: {{order.orderStatus}}</p>
+          <p class="left__data">Observaciones : {{ order.observations }}</p>
+        </div>
+        <div class="info__right">
+          <div class="right__data" *ngFor="let product of order.products">
+            <p>Producto: {{product.idProduct.productReference}}</p>
+            <p>Cantidad: {{product.cantidad}}</p>
+          </div>
+          <div class="right__data" *ngFor="let component of order.components">
+            <p>Componente: {{component.idComponent.componentReference}}</p>
+            <p>Cantidad: {{component.cantidad}}</p>
+          </div>
+          
+        </div>
+      </div>
+      <div class="card__buttons">
+        <button
+          routerLink="/orders/edit/{{ order._id }}"
+          class="buttons__boton"
+        >
+          Editar pedido
+        </button>
+        <button class="buttons__boton" (click)="deleteOrder(order._id)">Borrar pedido</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<app-footer></app-footer>
+

@@ -1,0 +1,127 @@
+.top_box{
+    //  border: solid 2px black;
+     height: 6%;
+     display: flex;
+     align-items: center;
+     justify-content:flex-end;
+     
+     .top{
+      border-radius: 0 0 0 30px;
+      border-bottom: solid 15px var(--grey-light);
+      border-left: solid 15px var(--grey-light);
+      background-color: var(--red-light);
+      width: 50%;
+      display: flex;
+      justify-content: space-between;
+      padding: 0px 20px 0px 1px;
+      flex-direction: row-reverse;
+      
+      
+    
+      & .top_p{
+        color:var(--white);
+        font-size: 2rem;
+        text-align: right;
+        padding: 1rem;
+        font-weight: bolder;
+      
+    }
+  }
+}
+
+
+.create-button{
+  background-color: var(--grey-light);
+  color: #cb3b28;
+  font-size: 1.1rem;
+  border: none;
+  padding: 10px 0px;
+  margin: 10px;
+  border-radius: 5px 5px 5px 11px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  box-shadow: 2px 2px 5px rgb(0 0 0);
+  width: 8em;
+  font-weight: 600;
+}
+
+
+.user_container {
+  display: flex;
+  grid-template-columns: 1fr 1fr;
+  height: 80vh;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  & .user_box_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .user_box {
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    height: 35vh;
+    width: 20em;
+    background-color: #cb3b28;
+    color: white;
+    box-shadow: 0px 0px 10px rgb(0 0 0 / 20%);
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 15px;
+  
+    &:hover {
+      transform: translateY(-10px);
+      box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    & .user_h2 {
+      font-size: 2rem;
+      text-align: left;
+    }
+
+    & .user_h3 {
+    //   border: solid 2px black;
+      font-size: 1.5rem;
+    }
+  }
+
+  .botton_box {
+    // border: solid 2px black;
+    display: flex;
+    justify-content: center;
+    
+    .user_button {
+      background-color: rgba(255, 0, 0, 0.56);
+      color: white;
+      font-size: 1.1rem;
+      border: none;
+      padding: 10px 0px;
+      margin: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+      box-shadow: 2px 2px 5px rgb(0 0 0 / 30%);
+      width: 8em;
+
+      & .user_button_p{
+        font-weight: bolder;
+      }
+
+      
+      &:hover {
+        background-color: white;
+        color: red;
+        box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+      }
+    }
+  }
+}
+
+
+

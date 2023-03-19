@@ -1,0 +1,16 @@
+<app-dashboard></app-dashboard> 
+<div class="process">
+    <div class="process__container">
+      <div *ngIf="provisioningList" class="container__card">
+        <p class="card__id">{{ provisioningList._id }}</p>
+        <p class="card__p">{{ provisioningList.description }}</p>
+        <p class="card__p">{{ provisioningList.price }}</p>
+        <button  
+        [routerLink]="['/provisioning/edit/{{ provisioning._id }}']"
+        class="card__button">
+          Editar Proceso
+        </button>
+        <button class="card__button" (click)="deleteProvisioning(provisioningList._id)">Delete Service</button>
+      </div>
+    </div>
+  </div>

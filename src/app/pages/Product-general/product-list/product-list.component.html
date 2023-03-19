@@ -1,0 +1,61 @@
+<app-dashboard></app-dashboard> 
+<div class="top_box">
+  <div class="top">
+    <p class="top_p">Lista de productos</p>
+  </div>
+</div>
+
+<app-loading-component *ngIf="!products"></app-loading-component>
+
+<div class="list_container" *ngIf="products">
+  <div class="filter_provider">
+    <p class="provider_p">Buscar producto</p>
+    <input
+    class="provider_input"
+    type="text"
+    #productName
+    (input)="productFind(productName.value)"
+    placeholder="Referencia del producto"
+  />
+  </div>
+  <div
+    class="list__all"
+    *ngFor="let product of products"
+    routerLink="/products/detail/{{ product._id }}"
+  >
+    <div class="list_box">
+      <p class="list__p_ref">REF: {{ product.productReference }}</p>
+    </div>
+    <div class="list_box_2">
+      <p class="list__p_description">DESCRIPCIÓN: {{ product.description }}</p>
+    </div>
+    <div class="list_box_3">
+      <p class="list__p_price">PRECIO: {{ product.price }}</p>
+    </div>
+  </div>
+  <button
+  [routerLink]="['create']"
+  class="list__button"
+>
+ <p class="list_p__button">Añadir un producto</p>
+</button>
+</div>
+
+<app-footer></app-footer>
+
+
+
+
+
+<!-- <a routerLink="/products/create">Nuevo producto</a> -->
+<!-- <p class="list__p_name">REF SANITARIA: {{ product.sanitaryProductReference }}</p> -->
+
+<!-- <div *ngFor="let item of product.images"> -->
+<!-- <p class="list__p_name">IMAGEN</p> -->
+
+<!-- <img src="{{ item }}" alt="{{ product.description }}"> -->
+<!-- </div> -->
+
+<!-- <div *ngFor="let component of product.components">
+    <p>{{component.componentReference}}</p>
+</div> -->

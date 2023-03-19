@@ -1,0 +1,28 @@
+.charts-container {
+    margin-top: 70px;
+}
+
+h2 {
+    text-align: center;
+}
+
+.bills, .customers {
+    width: 25%;
+}
+
+.orders, .sales {
+    width: 35%;
+}
+
+.top-charts {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.bottom-charts {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}

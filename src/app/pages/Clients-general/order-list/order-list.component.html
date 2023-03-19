@@ -1,0 +1,61 @@
+<app-dashboard></app-dashboard> 
+
+<div class="top_box">
+  <div class="top">
+    <p class="top_p">Lista de pedidos</p>
+  </div>
+</div>
+
+<div class="select_contain">
+<select class="select" name="estadoPedido" id="" (change)="orderListFind(estadoPedido.value)"  #estadoPedido >
+  <option value="pendiente" >Pendiente</option>
+  <option value="producción" >Producción</option>
+  <option value="activo" >Activo</option>
+</select>
+</div>
+
+
+<div class="list_container">
+  <div class="filter_provider">
+    <p class="provider_p">Buscar pedido</p>
+    <input
+    class="provider_input"
+    type="text"
+    #orderNumber
+    (input)="orderListFind(orderNumber.value)"
+    placeholder="Número del pedido"
+    
+  />
+  </div>
+    <div *ngIf="ordersListFiltered" class="list__card">
+      <div
+        *ngFor="let order of ordersListFiltered"
+        class="list__all"
+        routerLink="/orders/detail/{{ order._id }}"
+      >
+      <div class="list_box">
+        <p class="list__p_name">{{ order.orderNumber }}</p>
+      </div>
+      <div class="list_box_2">
+        <p class="list__p_contact">{{ order.date }}</p>
+      </div>
+      
+      <div class="list_box_3">
+        <p class="list__p_country">{{ order.orderStatus }}</p>
+      </div>
+
+    </div>
+  
+
+</div>
+<button
+[routerLink]="['create']"
+class="list__button"
+>
+<p class="list_p__button">Añadir un pedido</p>
+</button>
+  </div>
+  
+  
+  <app-footer></app-footer>
+

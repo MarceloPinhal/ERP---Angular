@@ -1,0 +1,187 @@
+<app-dashboard></app-dashboard>
+<app-loading-component *ngIf="!loading"></app-loading-component>
+
+<div class="top_box">
+  <div class="top">
+    <p class="top_p">Carles Cornadó</p>
+  </div>
+</div>
+
+<div class="order">
+  <div class="order__card">
+    <div class="card__decoration">
+      <p>Pedidos</p>
+    </div>
+
+    <form class="card__form" [formGroup]="orderForm">
+
+      <div class="form__general">
+        
+        <div class="general__row">
+          <div class="row__blocks">
+            <div class="blocks__title">
+              <p>Cliente</p>
+            </div>
+            <select name="customer" #customer class="blocks__box">
+              <option
+                *ngFor="let item of customersArr"
+                [value]="item._id">
+                  {{ item.name }}
+              </option>
+            </select>
+          </div>
+          
+          <div class="row__blocks">
+            <div class="blocks__title">
+              <p>Nº Pedido</p>
+            </div>
+            <div>
+              <input
+                class="blocks__box"
+                type="text"
+                formControlName="orderNumber"
+                placeholder="Número de orden"
+              />
+            </div>
+          </div>
+          <div class="row__blocks">
+            <div class="blocks__title">
+              <p>Fecha</p>
+            </div>
+            <div >
+              <input class="blocks__box" type="text" formControlName="date" />
+            </div>
+          </div>
+        </div>
+
+        <div class="general__row">
+
+          <div class="row__blocks">
+            <div class="blocks__title">
+              <p>Estado del pedido</p>
+            </div>
+            <div >
+              <select  class="blocks__box" name="estadoPedido" id=""  #estadoPedido >
+                <option value="pendiente" >Pendiente</option>
+                <option value="producción" >Producción</option>
+                <option value="activo" >Activo</option>
+              </select>
+              </div>
+          </div>
+          <div class="row__blocks">
+            <div class="blocks__title">
+              <p>Productos</p>
+            </div>
+            <div class="blocks__container">
+              <div class="container__box">
+                <select 
+                  class="box__select"
+                  name="products"
+                  #products
+                  formControlName="products"
+                  size="6"
+                >
+                  <option
+                    *ngFor="let item of productArr" [value]="item._id">
+                    {{ item.productReference }}
+                  </option>
+                </select>
+              </div>
+              <div class="container__box" id="cantidad">
+                <input #productCantidad type="number" placeholder="und." min="0" class="box__cantidad"/>
+              </div>
+              <div class="container__box" id="boton">
+                <button
+                  type="button"
+                  class="box__button"
+                  (click)="productPush(products.value, productCantidad.value)">
+                  +
+                </button>
+              </div>
+            </div>
+            
+          </div>
+          
+          <div class="row__blocks" >
+            <div class="blocks__title">
+              <p>Productos Seleccionados</p>
+            </div>
+            <div class="blocks__wrapper">
+              <div *ngFor="let item of productsAdd; let index = index" class="wrapper__item">
+                <p>{{ item.idProduct.productReference  }} - {{ item.cantidad  }} </p>
+                <button class="item__delete" (click)="deleteProduct(item)">x</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="general__row">
+          <div class="row__blocks">
+            <div class="blocks__title">
+              <p>Observaciones</p>
+            </div>
+            <div>
+              <textarea class="blocks__textarea" cols="30" rows="6" formControlName="observations">
+              </textarea>
+            </div>
+          </div>
+          <div class="row__blocks">
+            <div class="blocks__title">
+              <p>Componentes</p>
+            </div>
+            <div class="blocks__container">
+              <div class="container__box">
+                <select 
+                  class="box__select"
+                  name="components"
+                  #components
+                  formControlName="components"
+                  size="6"
+                >
+                  <option *ngFor="let item of componentArr" [value]="item._id" >
+                    {{ item.componentReference }}
+                  </option>
+                </select>
+              </div>
+              <div class="container__box" id="cantidad">
+                <input #componentCantidad type="number" placeholder="und." min="0" class="box__cantidad"/>
+              </div>
+              <div class="container__box" id="boton">
+                <button
+                  type="button"
+                  class="box__button"
+                  (click)="
+                  componentPush(components.value, componentCantidad.value)">
+                  +
+                </button>
+              </div>
+            </div>
+
+          </div>
+          <div class="row__blocks" >
+            <div class="blocks__title">
+              <p>Componentes Seleccionados</p>
+            </div>
+            <div class="blocks__wrapper">
+              <div *ngFor="let item of componentsAdd" class="wrapper__item">
+                <p>{{ item.idComponent.componentReference }} - {{ item.cantidad  }}</p>
+                <button class="item__delete" (click)="deleteComponent(item)">x</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="button">
+          <button *ngIf="!id" class="form_button" (click)="addOrder()">
+            Crear
+          </button>
+          <button *ngIf="id" class="form_button" (click)="addOrder()">
+            Editar
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<app-footer></app-footer>

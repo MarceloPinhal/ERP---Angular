@@ -1,0 +1,23 @@
+<div class="carousel">
+  <div class="slides">
+    <div class="slide" *ngFor="let image of images; let i = index">
+      <img
+        src={{image}}
+        alt="hola"
+        [class.active]="isCurrentSlideIndex(i)"
+      />
+    </div>
+  </div>
+  <div class="navigation" *ngIf="showNavigation">
+    <button class="prev" (click)="prev()">Prev</button>
+    <button class="next" (click)="next()">Next</button>
+  </div>
+  <div class="indicators" *ngIf="showIndicators">
+    <span
+      class="indicator"
+      *ngFor="let image of images; let i = index"
+      (click)="goToSlide(i)"
+      [class.active]="isCurrentSlideIndex(i)"
+    ></span>
+  </div>
+</div>

@@ -1,0 +1,171 @@
+<div class="dashboard">
+
+     <a routerLink="/home">
+        <div class="dashboard__logo">
+            <img
+            class="logo_img"
+            src="../../../assets/Logos/Safident-Logo-red.png"
+            alt=""
+            />
+            </div>
+    </a>
+  
+    <div class="dashboard__anchors">
+
+    <div class="ul-container">
+
+    <ul >
+        <li class="anchors__dropdown" (click)="toggleDropdown('clientes')">
+            <a class="dropdown__link" >Clientes</a>
+            <ul class="dropdown__menu" *ngIf="showDropdown === 'clientes'">
+                <li class="menu__li">
+                    <a href="#" 
+                    [routerLink]="['/customers']" 
+                    routerLinkActive="router-link-active"
+                    class="li__a" >
+                        Clientes
+                    </a>
+                </li>
+                <li class="menu__li">
+                    <a href="#" 
+                    [routerLink]="['/orders']" 
+                    routerLinkActive="router-link-active"
+                    class="li__a" >
+                        Pedidos
+                    </a>
+                </li>
+
+            </ul>
+        </li>
+        <li class="anchors__dropdown" (click)="toggleDropdown('proveedores')">
+            <a class="dropdown__link">Proveedores</a>
+            <ul class="dropdown__menu" *ngIf="showDropdown === 'proveedores'">
+                <li class="menu__li">
+                    <a href="#" 
+                    [routerLink]="['/providers']" 
+                    routerLinkActive="router-link-active"
+                    class="li__a" >
+                        Proveedores
+                    </a>
+                </li>
+                <li class="menu__li">
+                    <a href="#" 
+                    [routerLink]="['/provisioning']" 
+                    routerLinkActive="router-link-active"
+                    class="li__a" >
+                       Aprovisionamiento
+                    </a>
+                </li>
+
+            </ul>
+        </li>
+        <li class="anchors__dropdown" (click)="toggleDropdown('productos')">
+            <a class="dropdown__link">Productos</a>
+            <ul class="dropdown__menu" *ngIf="showDropdown === 'productos'">
+                <li class="menu__li">
+                    <a href="#" 
+                    [routerLink]="['/products']" 
+                    routerLinkActive="router-link-active"
+                    class="li__a" >
+                        Productos
+                    </a>
+                </li>
+                <li class="menu__li">
+                    <a href="#" 
+                    [routerLink]="['/stock']" 
+                    routerLinkActive="router-link-active"
+                    class="li__a" >
+                       Stock
+                    </a>
+                </li>
+                <li class="menu__li">
+                    <a href="#" 
+                    [routerLink]="['/processes']" 
+                    routerLinkActive="router-link-active" 
+                    class="li__a">
+                        Procesos
+                    </a>
+                </li>
+                <li class="menu__li">
+                    <a href="#" 
+                    [routerLink]="['/productionOrder']" 
+                    routerLinkActive="router-link-active" 
+                    class="li__a">
+                       Ordenes de Fabricación
+                    </a>
+                </li>
+                <li class="menu__li">
+                    <a href="#" 
+                    [routerLink]="['/components']" 
+                    routerLinkActive="router-link-active"
+                    class="li__a" >
+                       Componentes
+                    </a>
+                </li>
+
+            </ul>
+        </li>
+        <li class="anchors__dropdown" (click)="toggleDropdown('contabilidade')">
+            <a class="dropdown__link" >Contabilidad</a>
+            <ul class="dropdown__menu" *ngIf="showDropdown === 'contabilidade'">
+                <li class="menu__li">
+                    <a href="#" 
+                    [routerLink]="['/bills']" 
+                    routerLinkActive="router-link-active"
+                    class="li__a" >
+                        Facturas
+                    </a>
+                </li>
+                <li class="menu__li">
+                    <a href="#" 
+                    [routerLink]="['/deliveryNotes']" 
+                    routerLinkActive="router-link-active" 
+                    class="li__a">
+                        Albaranes
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="anchors__dropdown" (click)="toggleDropdown('empresa')">
+            <a class="dropdown__link" >Empresa</a>
+            <ul class="dropdown__menu" *ngIf="showDropdown === 'empresa'">
+                <li class="menu__li">
+                    <a href="#" 
+                    [routerLink]="['/company']" 
+                    routerLinkActive="router-link-active" 
+                    class="li__a">
+                        Empresa
+                    </a>
+                </li>
+                <li class="menu__li">
+                    <a href="#" 
+                    [routerLink]="['/users']" 
+                    routerLinkActive="router-link-active"
+                    class="li__a" >
+                        Usuarios
+                    </a>
+                </li>
+
+            </ul>
+        </li>
+        
+    </ul>
+
+    
+</div>
+
+<div class="user-container">
+    <div class="user-img">
+        <img src="https://ps.w.org/login-as-user/assets/icon-256x256.png?rev=2122265" alt="user">
+    </div>
+    <span class="user-logIn">{{nameusuario}}</span>
+    <button class="button-logout" (click)="logOut()">Log Out</button>
+    </div>
+
+
+
+  </div>
+</div>
+
+
+                      

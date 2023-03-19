@@ -1,0 +1,55 @@
+<app-dashboard></app-dashboard>
+<div class="top_box">
+  <div class="top">
+    <p class="top_p">Lista de componentes</p>
+  </div>
+  </div>
+
+
+
+<h1>componentes</h1>
+
+
+  
+<!-- <input
+  type="text"
+  #componentRef
+  (input)="componentFind(componentRef.value)"
+  placeholder="Referencia del componente"
+/> -->
+
+<div *ngIf="filteredComponentList.length > 0" class="list_container">
+  <div
+    *ngFor="let component of filteredComponentList"
+    class="list__all"
+    
+    routerLink="/components/detail/{{ component._id }}"
+  >
+  <div class="list_box">
+    <p class="list__p_name">COMPONENT REFERENCE {{ component.componentReference }}</p>
+  </div>
+  <div class="list_box_2">
+    <p class="list__p_contact">
+      SANITARY COMPONENT REFERENCE {{ component.sanitaryComponentReference }}
+    </p>
+  </div>
+  <div class="list_box_3">
+    <p class="list__p_country">DESCRIPTION {{ component.description }}</p>
+  </div>
+
+    <!-- <div *ngFor="let image of component.images" class="imageContainer">
+      <img src="{{ image }}" alt="{{ component.description }}" />
+    </div>
+
+    <div
+      *ngFor="let equivalence of component.equivalences"
+      class="equivalencesContainer"
+    >
+      <p>{{ equivalence.idComponent }}</p>
+    </div> -->
+  </div>
+  <button [routerLink]="['/components/create']" class="list__button">
+    <p class="list_p__button">Añadir un componente</p>
+  </button>
+  </div>
+  

@@ -1,0 +1,36 @@
+<app-dashboard></app-dashboard> 
+<div class="top_box">
+    <div class="top">
+      <p class="top_p">Empresa</p>
+    </div>
+  </div>
+  <app-loading-component *ngIf="!companies"></app-loading-component>
+  
+<div class="company_container" *ngIf="companies" >
+    <div *ngFor="let company of companies" class="company__card">
+        <div class="company_box">
+        <div>
+            <p class="company_p">{{company.name}}</p>
+            <div *ngFor="let contact of company.contact">
+                <div class="company_contact">
+                <p class="company_p">{{contact.name}}</p>
+                <p class="company_p">{{contact.mail}}</p>
+                <p class="company_p">{{contact.phone}}</p>
+            </div>
+            </div>
+            <div class="company_dates">
+            <p class="company_p">{{company.taxIdentificationNumber}}</p>
+            <p class="company_p">{{company.country}}</p>
+            <p class="company_p">{{company.city}}</p>
+            <p class="company_p">{{company.cityCode}}</p>
+            <p class="company_p">{{company.address}}</p>
+        </div>
+            <div *ngFor="let tradeMark of company.tradeMark">
+                <p class="company_p">{{tradeMark.name}}</p>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

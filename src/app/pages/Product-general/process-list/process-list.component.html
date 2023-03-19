@@ -1,0 +1,45 @@
+<app-dashboard></app-dashboard> 
+<div class="top_box">
+  <div class="top">
+    <p class="top_p">Lista de procesos</p>
+  </div>
+</div>
+<app-loading-component *ngIf="!processList"></app-loading-component>
+
+<div class="list_container" *ngIf="processList">
+  <div class="filter_provider">
+    <p class="provider_p">Buscar proceso</p>
+    <input
+    class="provider_input"
+    type="text"
+    #processName
+    (input)="processFind(processName.value)"
+    placeholder="Nombre del proceso"
+    />
+  </div>
+  <div *ngIf="processList" class="list__card">
+    <div
+      *ngFor="let process of processList"
+      class="list__all"
+      routerLink="/processes/detail/{{ process._id }}"
+    >
+    <div class="list_box">
+      <p class="list__p_name">{{ process.name }}</p>
+      <!-- <button 
+          routerLink="/processes/detail/{{ process._id }}"
+          class="card__button">
+          Ver detalles
+        </button> -->
+      </div>
+        
+  </div>
+</div>
+<button
+      [routerLink]="['create']"
+      class="list__button"
+    >
+     <p class="list_p__button">Añadir un proceso</p>
+    </button>
+</div>
+
+<app-footer></app-footer>

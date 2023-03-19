@@ -1,0 +1,89 @@
+.top_box{
+    //  border: solid 2px black;
+     height: 6%;
+     display: flex;
+     align-items: center;
+     justify-content:flex-end;
+     
+     .top{
+      border-radius: 0 0 0 30px;
+      border-bottom: solid 15px var(--grey-light);
+      border-left: solid 15px var(--grey-light);
+      background-color: var(--red-light);
+      width: 50%;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    
+      & .top_p{
+        color:var(--white);
+        font-size: 1.7rem;
+        text-align: right;
+        padding: 1rem;
+      
+    }
+}
+}
+
+.customer_create{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 74vh;
+    
+
+    .customer_card {
+       
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--red-light);
+        color: white;
+        border: solid 20px var(--grey-light);
+        padding: 20px;
+        width: 40vh;
+        height: 40vh;
+        box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.681);
+
+        .decoration_p, .company_p{
+            color:white;
+            font-size: 1.5rem;
+            margin:1rem;
+            text-align: center;
+        }
+        .company_input {
+          background-color: var(--red-light);
+          color: white;
+        }
+
+        .list__button {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top:1rem;
+            width: auto;
+            height: auto;
+            font-weight: bolder;
+            font-size: 1.2rem;
+            display: inline-block;
+            padding: 30px;
+            border: none;
+            border-radius: 1rem;
+            background-color: red;
+            color: white;
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+            transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out,
+              box-shadow 0.2s ease-in-out;
+          }
+          
+          .list__button:hover {
+            background-color: white;
+            color: red;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          }
+          
+          .list_p__button {
+            margin: 0;
+          }
+      }
+}

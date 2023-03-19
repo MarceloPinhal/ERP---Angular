@@ -1,0 +1,31 @@
+<app-dashboard></app-dashboard> 
+<div class="top_box">
+  <div class="top">
+    <p class="top_p">Lista de stock</p>
+  </div>
+</div>
+<app-loading-component *ngIf="!stock"></app-loading-component>
+
+
+<div class="list_container" *ngIf="stock">
+  <div class="list__all" *ngFor="let item of stock">
+    <div class="list_products" *ngFor="let product of item.Products">
+      <p class="list__p_ref">
+        Referencia de producto: {{ product.idProduct.productReference }}
+      </p>
+      <p class="list__p_ref">Cantidad de productos:{{ product.quantity }}</p>
+    </div>
+
+    <div class="list_components" *ngFor="let component of item.Components">
+      <p class="list__p_description">
+        Id del componente:{{ component.idComponent.componentReference }}
+      </p>
+
+      <p class="list__p_description">
+        Cantidad de componentes:{{ component.quantity }}
+      </p>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

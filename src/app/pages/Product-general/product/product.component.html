@@ -1,0 +1,103 @@
+<app-dashboard></app-dashboard> 
+
+<div class="top_box">
+  <div class="top">
+    <p class="top_p">Carles Cornadó</p>
+  </div>
+</div>
+<!-- <app-loading-component *ngIf="!products"></app-loading-component> -->
+<div class="customer" *ngIf="products">
+  <div class="customer_card">
+    <div class="decoration">
+      <p class="decoration_p">Crear un producto</p>
+    </div>
+
+    <form class="form" [formGroup]="productForm">
+      <div class="card_company">
+        <p class="company_p">Referencia</p>
+        <input
+          class="company_input"
+          type="text"
+          formControlName="productReference"
+        />
+
+        <div class="card_direction">
+          <p class="company_p">Precio</p>
+          <input class="company_input" type="number" formControlName="price" />
+
+          <p class="company_p">Referencia sanitaria</p>
+          <input
+            class="company_input"
+            type="text"
+            formControlName="sanitaryProductReference"
+          />
+
+          <p class="company_p">Descripción</p>
+          <input
+            class="company_input"
+            type="text"
+            formControlName="description"
+          />
+        </div>
+      </div>
+      <div class="card_direction">
+        <p class="company_p">Imágenes</p>
+
+        <input
+          class="company_input"
+          multiple
+          type="file"
+          #image
+          formControlName="images"
+          (change)="onFileChange($event)"
+        />
+
+        <p class="company_p">Componentes</p>
+
+        <select name="componentes" id="" #componentes>
+          <option *ngFor="let item of component" [value]="item._id">
+            {{ item.componentReference }}
+          </option>
+        </select>
+        <button type="button" (click)="componentsAdd(componentes.value)">
+          Nuevos componentes
+        </button>
+      </div>
+
+      <div class="description_list">
+        <div class="description_box" *ngFor="let item of ref">
+          <p class="description_p">{{ item.description }}</p>
+        </div>
+      </div>
+      
+      <div class="card_envio">
+        <p class="company_p">Procesos</p>
+        <select name="Procesos" id="" #procesos>
+          <option *ngFor="let item of process" [value]="item._id">
+            {{ item.name }}
+          </option>
+        </select>
+        <button type="button" (click)="processesAdd(procesos.value)">
+          Nuevo proceso
+        </button>
+      </div>
+        <div class="description_list">
+        <div class="description_box" *ngFor="let item of NamesProcesses">
+          <p class="description_p">{{ item.name }}</p>
+        </div>
+      </div>
+  
+    
+      <div class="bottom_box">
+        <button type="bottom" (click)="submitProductForm()">
+          <p class="bottom_p">Crear</p>
+        </button>
+        <div class="bottom_box">
+          <div class="bottom"></div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<app-footer></app-footer>

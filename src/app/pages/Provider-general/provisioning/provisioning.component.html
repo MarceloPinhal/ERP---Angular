@@ -1,0 +1,52 @@
+<app-dashboard></app-dashboard> 
+<div class="top_box">
+    <div class="top">
+      <p class="top_p">Carles Cornadó</p>
+    </div>
+  </div>
+  
+  <div class="customer_create">
+    <div class="customer_card">
+      <div class="decoration">
+        <p class="decoration_p">Crear aprovisionamiento</p>
+      </div>
+  
+      <form class="form" [formGroup]="provisioningForm" >
+        <div class="card_company">
+          
+          <select name="provider" id="" formControlName="idProvider" >
+            <option *ngFor="let item of providers" [value]="item._id">{{item.name}}</option>
+          </select>
+  
+          <p class="company_p">Código</p>
+          <input
+            class="company_input"
+            type="text"
+            formControlName="code"
+          />
+  
+          <p class="company_p">Descripción</p>
+          <input
+            class="company_input"
+            type="text"
+            formControlName="description"
+          />
+          
+          <p class="company_p">Precio</p>
+          <input
+            class="company_input"
+            type="text"
+            formControlName="price"
+          />
+
+            </div>
+          
+        
+      </form>
+      <button [routerLink]="['create']" class="list__button">
+        <p class="list_p__button">Añadir un aprovisionamiento</p>
+      </button>
+    </div>
+  </div>
+
+  <app-footer></app-footer>

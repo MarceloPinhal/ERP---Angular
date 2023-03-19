@@ -1,0 +1,31 @@
+<app-dashboard></app-dashboard> 
+<div class="top_box">
+
+  <div class="top">
+    <button class="create-button" type="button" (click)="createUser()">Crear Usuario</button>
+    <p class="top_p">Usuarios</p>
+  </div>
+</div>
+<app-loading-component *ngIf="!users"></app-loading-component>
+<div class="user_container" *ngIf="users">
+  <div *ngFor="let user of users">
+    <div class="user_box_container">
+      <div class="user_box">
+        <!-- <h2 class="user_h2">{{user._id}}</h2> -->
+        <h2 class="user_h2">{{ user.name }}</h2>
+        <h3 class="user_h3">{{ user.user }}</h3>
+        <h3 class="user_h3">{{ user.rol }}</h3>
+        <div class="botton_box">
+          <button class="user_button" (click)="changePassword(user)">
+            <p class="user_button_p">Cambiar la contraseña</p>
+          </button>
+          <button class="user_button" (click)="deleteUser(user._id)">
+            <p class="user_button_p">Borrar al usuario</p>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

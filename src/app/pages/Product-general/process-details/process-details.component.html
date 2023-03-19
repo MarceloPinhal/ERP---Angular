@@ -1,0 +1,30 @@
+<app-dashboard></app-dashboard> 
+
+<div class="top_box">
+  <div class="top">
+    <p class="top_p">Detalles de procesos</p>
+  </div>
+</div>
+
+<app-loading-component *ngIf="!process"></app-loading-component>
+<div class="process" *ngIf="process">
+  <div class="process__container">
+    <div *ngIf="process" class="container__card">
+      <h3 class="process_h3">{{ process.name }}</h3>
+      <p class="process_p">{{ process._id }}</p>
+    </div>
+
+    <div class="card_button">
+    <!-- <button  
+      routerLink="/processes/edit/{{ process._id }}"
+      class="buttons">
+        Editar proceso
+      </button> -->
+      <button class="buttons" (click)="deleteProcess(process._id)">Borrar proceso</button>
+    </div>
+  </div>
+
+</div>
+<!-- (click)="deleteProcess(processList)" -->
+
+<app-footer></app-footer>
